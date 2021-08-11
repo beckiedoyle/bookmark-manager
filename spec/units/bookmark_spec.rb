@@ -1,4 +1,4 @@
-require 'bookmarks'
+require 'bookmark'
 
 describe Bookmark do
 
@@ -14,6 +14,13 @@ describe Bookmark do
       expect(bookmarks).to include("https://makers.tech")
       expect(bookmarks).to include("https://www.google.co.uk/")
       expect(bookmarks).to include("https://http.cat/")
+    end
+  end
+
+  describe '.create' do
+    it 'creates a new bookmark' do
+      Bookmark.create(url: 'http://www.example.org')
+      expect(Bookmark.all).to include 'http://www.example.org'
     end
   end
 
